@@ -1,6 +1,5 @@
 import telebot
 import config
-import random
 
 from telebot import types
 from sber import sber_dates_published_reports
@@ -21,7 +20,8 @@ def welcome(message):
     markup.add(item1, item2, item3)
 
     bot.send_message(message.chat.id,
-                     "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот, созданный чтобы быть подопытным кроликом.".format(
+                     "Добро пожаловать, {0.first_name}!\nЯ - <b>{1.first_name}</b>, бот, созданный чтобы информировать"
+                     " Вас о новых фининсовых отчетах.".format(
                          message.from_user, bot.get_me()),
                      parse_mode='html', reply_markup=markup)
 
@@ -41,7 +41,7 @@ def lalala(message):
 
             bot.send_message(message.chat.id, 'Отлично, сам как?', reply_markup=markup)
         else:
-            bot.send_message(message.chat.id, 'Я не знаю что ответить 😢 но я люблю тебя')
+            bot.send_message(message.chat.id, 'Я не знаю что ответить, 😢 денег нет, но Вы держитесь')
 
 
 @bot.callback_query_handler(func=lambda call: True)
